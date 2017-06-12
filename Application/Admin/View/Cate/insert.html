@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+</head>
+<body>
+<include file="Common:header"/>
+<div class="container clearfix">
+    <include file="Common:navigate"/>
+    <!--/sidebar-->
+    <div class="main-wrap">
+
+        <div class="crumb-wrap">
+            <div class="crumb-list"><i class="icon-font"></i><a href="__MODULE__/Index">首页</a><span
+                    class="crumb-step">&gt;</span><a class="crumb-name" href="__MODULE__/Cate/lists">栏目管理</a><span
+                    class="crumb-step">&gt;</span><span>新增栏目</span></div>
+        </div>
+        <div class="result-wrap">
+            <div class="result-content">
+                <form action="__CONTROLLER__/insert" method="post" id="myform" name="myform">
+                    <!--enctype="multipart/form-data">-->
+                    <table class="insert-tab" width="100%">
+                        <tbody>
+                        <!--<tr>-->
+                        <!--<th width="120"><i class="require-red">*</i>分类：</th>-->
+                        <!--<td>-->
+                        <!--<select name="colId" id="catid" class="required">-->
+                        <!--<option value="">请选择</option>-->
+                        <!--<option value="19">精品界面</option>-->
+                        <!--<option value="20">推荐界面</option>-->
+                        <!--</select>-->
+                        <!--</td>-->
+                        <!--</tr>-->
+                        <tr>
+                            <th><i class="require-red">*</i>栏目标题：</th>
+                            <td>
+                                <input class="common-text required" id="column" name="column" size="50" value=""
+                                       type="text">
+                            </td>
+                        </tr>
+                        <!--<tr>-->
+                            <!--<th>作者：</th>-->
+                            <!--<td><input class="common-text" name="bk_author" size="50" value="" type="text"></td>-->
+                        <!--</tr>-->
+                        <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<th><i class="require-red">*</i>缩略图：</th>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<td><input name="bk_pic" id="" type="file">&ndash;&gt;-->
+                        <!--&lt;!&ndash;&lt;!&ndash;<input type="submit" onclick="submitForm('/jscss/admin/design/upload')" value="上传图片"/>&ndash;&gt;&ndash;&gt;-->
+                        <!--&lt;!&ndash;</td>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                        <!--<tr>-->
+                            <!--<th>内容：</th>-->
+                            <!--<td><textarea name="bk_content" class="common-textarea" id="content" cols="30"-->
+                                          <!--style="width: 98%;" rows="10"></textarea></td>-->
+                        <!--</tr>-->
+                        <tr>
+                            <th></th>
+                            <td>
+                                <input class="btn btn-primary btn6 mr10" value="提交" type="submit">
+                                <input class="btn btn6" onclick="history.go(-1)" value="返回" type="button">
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <!--/main-->
+</div>
+</body>
+</html>

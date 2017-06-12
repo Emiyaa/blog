@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-CN" prefix="og: http://ogp.me/ns#">
+<head>
+    <title>博客</title>
+    <include file="Common:header"/>
+    <style type="text/css">
+        .b-page {
+            background: #fff;
+            box-shadow: 0px 1px 2px 0px #E2E2E2;
+        }
+
+        .page {
+            width: 95%;
+            padding: 30px 15px;
+            background: #FFF;
+            text-align: right;
+            overflow: hidden;
+        }
+
+        .page .first,
+        .page .prev,
+        .page .current,
+        .page .num,
+        .page .current,
+        .page .next,
+        .page .end {
+            padding: 8px 16px;
+            margin: 0px 5px;
+            display: inline-block;
+            color: #008CBA;
+            border: 1px solid #F2F2F2;
+            border-radius: 5px;
+        }
+
+        .page .first:hover,
+        .page .prev:hover,
+        .page .current:hover,
+        .page .num:hover,
+        .page .current:hover,
+        .page .next:hover,
+        .page .end:hover {
+            text-decoration: none;
+            background: #F8F5F5;
+        }
+
+        .page .current {
+            background-color: #008CBA;
+            color: #FFF;
+            border-radius: 5px;
+            border: 1px solid #008CBA;
+        }
+
+        .page .current:hover {
+            text-decoration: none;
+            background: #008CBA;
+        }
+
+        .page .not-allowed {
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body class="p-blog zh">
+<include file="Common:navigate"/>
+
+<div class="body">
+    <div class="wrapper cls">
+        <div class="main">
+            <volist name="lists" id="vo">
+                <div class="list">
+                    <ul>
+                        <li>
+                            <h1 class="title">
+                                <a href="__CONTROLLER__/article/id/{$vo.id}">{$vo.bk_title}</a>
+                            </h1>
+                            <div class="info">
+                                <span>{$vo.time}</span>
+                                <!--{$vo.time | date = "Y-m-d" , ###}-->
+                            </div>
+                            <div class="thumb">
+                                <a href="__CONTROLLER__/article/id/{$vo.id}">
+                                    <if condition="$vo[bk_pic] neq null">
+                                        <img width="1200" height="630"
+                                             src="__ROOT__{$vo.bk_pic}"
+                                             class="attachment-post-thumbnail size-post-thumbnail wp-post-image"
+                                             alt=""/>
+                                        <else/>
+                                        <img width="1200" height="630"
+                                             src="__ROOT__/Uploads/null.gif"
+                                             class="attachment-post-thumbnail size-post-thumbnail wp-post-image"
+                                             alt=""/>
+                                    </if>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </volist>
+            <div class="list page b-page">
+                {$page}
+            </div>
+        </div>
+
+        <include file="Common:right"/>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div id="fb-root"></div>
+
+<include file="Common:footer"/>
+</body>
+</html>

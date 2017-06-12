@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+    <style type="text/css">
+        .b-page {
+            background: #fff;
+            box-shadow: 0px 1px 2px 0px #E2E2E2;
+        }
+
+        .page {
+            width: 95%;
+            padding: 30px 15px;
+            background: #FFF;
+            text-align: right;
+            overflow: hidden;
+        }
+
+        .page .first,
+        .page .prev,
+        .page .current,
+        .page .num,
+        .page .current,
+        .page .next,
+        .page .end {
+            padding: 8px 16px;
+            margin: 0px 5px;
+            display: inline-block;
+            color: #008CBA;
+            border: 1px solid #F2F2F2;
+            border-radius: 5px;
+        }
+
+        .page .first:hover,
+        .page .prev:hover,
+        .page .current:hover,
+        .page .num:hover,
+        .page .current:hover,
+        .page .next:hover,
+        .page .end:hover {
+            text-decoration: none;
+            background: #F8F5F5;
+        }
+
+        .page .current {
+            background-color: #008CBA;
+            color: #FFF;
+            border-radius: 5px;
+            border: 1px solid #008CBA;
+        }
+
+        .page .current:hover {
+            text-decoration: none;
+            background: #008CBA;
+        }
+
+        .page .not-allowed {
+            cursor: not-allowed;
+        }
+    </style>
+    <script type="text/javascript">
+        // 选择或者反选 checkbox
+        function CheckSelect(thisform) {
+            // 遍历 form
+            for (var i = 0; i < thisform.elements.length; i++) {
+                // 提取控件
+                var checkbox = thisform.elements[i];
+                // 检查是否是指定的控件
+                if (checkbox.name === "id[]" && checkbox.type === "checkbox" && checkbox.checked === false) {
+                    // 正选
+                    checkbox.checked = true;
+                }
+                else if (checkbox.name === "id[]" && checkbox.type === "checkbox" && checkbox.checked === true) {
+                    // 反选
+                    checkbox.checked = false;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<include file="Common:header"/>
+<div class="container clearfix">
+    <include file="Common:navigate"/>
+    <!--/sidebar-->
+    <div class="main-wrap">
+
+        <div class="crumb-wrap">
+            <div class="crumb-list"><i class="icon-font"></i><a href="__MODULE__/Index">首页</a><span
+                    class="crumb-step">&gt;</span><span class="crumb-name">栏目管理</span></div>
+        </div>
+        <div class="search-wrap">
+            <div class="search-content">
+                <form action="__MODULE__/Cate/add" method="post">
+                    <table class="search-tab">
+                        <tr>
+                            <th width="120">选择分类:</th>
+                            <td>
+                                <select name="search-sort" id="search-sort">
+                                    <option value="">全部</option>
+                                    <option value="19">精品界面</option>
+                                    <option value="20">推荐界面</option>
+                                </select>
+                            </td>
+                            <th width="70">关键字:</th>
+                            <td><input class="common-text" placeholder="关键字" name="keywords" value="" id="common-text"
+                                       type="text">
+                            </td>
+                            <td><input class="btn btn-primary btn2" name="sub" value="查询" type="submit"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <div class="result-wrap">
+            <form action="__CONTROLLER__/del" id="delList" method="get">
+                <div class="result-title">
+                    <div class="result-list">
+                        <a href="__CONTROLLER__/insert"><i class="icon-font"></i>新增栏目</a>
+                        <button type="submit" onclick="return confirm('您确定要删除所有选择选项吗？');"><i class="icon-font"></i>批量删除</button>
+                        <!--<a id="updateOrd" href="javascript:void(0)"><i class="icon-font"></i>更新排序</a>-->
+                    </div>
+                </div>
+                <div class="result-content">
+                    <table class="result-tab" width="100%">
+                        <tr>
+                            <th class="tc" width="5%">
+                                <input class="allChoose" name="" type="checkbox" title="反选"
+                                       onClick="CheckSelect(this.form);return false;"/>
+                            </th>
+                            <th>ID</th>
+                            <th>栏目标题</th>
+                            <!--<th>发布人</th>-->
+                            <!--<th>发布内容</th>-->
+                            <!--<th>更新时间</th>-->
+                            <th>操作</th>
+                        </tr>
+                        <!--循环输出数据-->
+                        <volist name="cates" id="vo">
+                            <tr>
+                                <td class="tc"><input name="id[]" value="{$vo.id}" type="checkbox"></td>
+                                <td>{$vo.id}</td>
+                                <td title="column"><a target="_blank" href="#" title="column">{$vo.column}</a></td>
+                                <!--<td>{$vo.bk_author}</td>-->
+                                <!--<td>{$vo.bk_content}</td>-->
+                                <!--<td>{$vo.time}</td>-->
+                                <td>
+                                    <a class="link-update" href="__CONTROLLER__/edit/id/{$vo.id}">修改</a>
+                                    <a class="link-del" href="__CONTROLLER__/del/id/{$vo.id}"
+                                       onclick="return confirm('您确定要删除 {$vo.column} 栏目吗？');">删除</a>
+                                </td>
+                            </tr>
+                        </volist>
+                    </table>
+                    <div class="list page b-page">
+                        {$page}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--/main-->
+</div>
+</body>
+</html>

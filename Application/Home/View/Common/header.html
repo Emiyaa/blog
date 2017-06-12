@@ -1,0 +1,54 @@
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<link href='__PUBLIC__/Home/style/style.css' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/style/font.css">
+<script type="text/javascript" src="__PUBLIC__/Home/style/jquery-1.11.3.min.js"></script>
+<style type="text/css">
+    img.wp-smiley,
+    img.emoji {
+        display: inline !important;
+        border: none !important;
+        box-shadow: none !important;
+        height: 1em !important;
+        width: 1em !important;
+        margin: 0 .07em !important;
+        vertical-align: -0.1em !important;
+        background: none !important;
+        padding: 0 !important;
+    }
+</style>
+<script>
+    $(function ($) {
+        $('[data-ga]').click(function () {
+            var e = $(this).attr('data-ga').split('|');
+            ga('send', 'event', e[0], e[1], e[2]);
+        });
+    });
+
+    $(function () {
+        'use strict';
+        var $window = $(window);
+        $window.scroll(checkAnchorBar);
+        checkAnchorBar();
+
+        function checkAnchorBar() {
+            var $anchorBar = $('.anchor-bar');
+            var scrollTop = $window.scrollTop();
+
+            var $anchorStartElem = $('header');
+            var attachedClass = 'attached';
+
+            var threshold = $anchorStartElem.offset().top + $anchorStartElem.height();
+
+            if (!$anchorBar.hasClass(attachedClass) && scrollTop >= threshold) {
+                $anchorBar.addClass(attachedClass);
+            } else if ($anchorBar.hasClass(attachedClass) && scrollTop < threshold) {
+                $anchorBar.removeClass(attachedClass);
+            }
+        }
+    });
+</script>
+
+<!-- Desktop Header -->

@@ -1,0 +1,46 @@
+<!-- 导航啦开始 -->
+<header>
+    <div class="header">
+        <div class="logo">
+            <div class="title">
+                <a href="#">
+                    <!--<img src=""-->
+                         <!--alt="" title="" width="126"-->
+                         <!--height="45"/>-->
+                    <h1>Emiyaa的博客</h1>
+                </a>
+            </div>
+
+        </div>
+        <nav class="navbar" role="navigation">
+            <ul class="nav">
+                <volist name="cates" id="vo">
+                    <li>
+                        <a href="__MODULE__/<if condition="$vo['id'] eq 1">Index<elseif condition="$vo['id'] eq 2"/>Active<elseif condition="$vo['id'] eq 3"/>About</if>/index"
+                        <if condition="$cateids['id'] eq $vo['id']">class="active"</if>
+                        >{$vo.column}
+                        </a>
+                    </li>
+                </volist>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="anchor-bar">
+    <ul class="nav">
+        <volist name="cates" id="vo">
+            <li>
+                <a href="__MODULE__/<if condition="$vo['id'] eq 1">Index<elseif condition="$vo['id'] eq 2"/>Active<elseif condition="$vo['id'] eq 3"/>About</if>/index"
+                <if condition="$cateids['id'] eq $vo['id']">class="active"</if>
+                >{$vo.column}
+                </a>
+            </li>
+        </volist>
+        <li>
+            <a class="download" data-ga="download|anchor-bar|ts|" href="{:U('Admin/Login/login')}">登录</a>
+            <a class="download" data-ga="download|anchor-bar|ts|" href="https://github.com/Emiyaa/blog">免费下载</a>
+        </li>
+    </ul>
+</div>
+<!-- 导航栏结束 -->

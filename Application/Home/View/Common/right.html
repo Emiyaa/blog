@@ -1,0 +1,46 @@
+<div class="sticky-content-spacer">
+    <div id="sidebar" class="side">
+        <!-- Desktop Sidebar -->
+
+        <div class="widget-download">
+            <div class="free-download">
+                <img class="ts-logo" width="228"
+                     src=""
+                     alt="编程交流"/>
+                <a class="title"
+                   href="//shang.qq.com/wpa/qunwpa?idkey=8c3378b70b6bf234fbd261f83986dbdedcd47906242ea535a6e23296bf1e23a0">加入我们</a>
+                <span class="os">点击上述按钮加入我们</span>
+            </div>
+        </div>
+
+
+        <!-- 热门文章 -->
+        <div class="pop">
+            <div class="title">热门文章</div>
+            <ul>
+                <volist name="recommend" id="vo">
+                    <li>
+                        <div class="thumb"><a href="__MODULE__/Active/article/id/{$vo.id}">
+                            <img width="1350" height="675"
+                                 src="__ROOT__{$vo.bk_pic}"
+                                 class="attachment-post-thumbnail size-post-thumbnail wp-post-image"
+                                 sizes="(max-width: 1350px) 100vw, 1350px"/></a>
+                        </div>
+                        <h2 class="topic"><a href="__MODULE__/Active/article/id/{$vo.id}">{$vo.bk_title}</a></h2>
+                        <div class="clear"></div>
+                    </li>
+                </volist>
+            </ul>
+        </div>
+        <!-- 热门文章end -->
+
+        <!--<div class="fb-page" data-href="https://www.facebook.com/360safe" data-width="293" data-height="320"-->
+             <!--data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"-->
+             <!--data-show-facepile="true" data-show-posts="true">-->
+            <!--<div class="fb-xfbml-parse-ignore">-->
+                <!--<blockquote cite=""><a href="">360-->
+                    <!--Total Security</a></blockquote>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+</div>

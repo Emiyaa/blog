@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+</head>
+<body>
+<include file="Common:header"/>
+<div class="container clearfix">
+    <include file="Common:navigate"/>
+    <!--/sidebar-->
+    <div class="main-wrap">
+        <div class="crumb-wrap">
+            <div class="crumb-list"><i class="icon-font"></i><a href="/jscss/admin/design/">首页</a><span
+                    class="crumb-step">&gt;</span><span style="color: red;">修改密码</span></div>
+        </div>
+        <div class="result-wrap">
+            <div class="result-content">
+                <form action="" method="post" id="myform" name="myform" enctype="multipart/form-data">
+                    <input type="hidden" name="id" value="{$users.id}"/>
+                    <input type="hidden" name="username" value="{$users.username}">
+                    <table class="insert-tab" width="100%">
+                        <tbody>
+                        <tr>
+                            <th><i class="require-red">*</i>原密码：</th>
+                            <td>
+                                <input class="common-text required" name="oldpassword" size="50" type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><i class="require-red">*</i>新密码：</th>
+                            <td>
+                                <input class="common-text required" name="password" size="50"
+                                       type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><i class="require-red">*</i>确认密码：</th>
+                            <td>
+                                <input class="common-text required" name="cnewpassword" size="50"
+                                       type="text">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th></th>
+                            <td>
+                                <input class="btn btn-primary btn6 mr10" value="提交" type="submit">
+                                <input class="btn btn6" onclick="history.go(-1)" value="返回" type="button">
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <!--/main-->
+</div>
+</body>
+</html>

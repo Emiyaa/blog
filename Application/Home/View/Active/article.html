@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN" prefix="og: http://ogp.me/ns#">
+<head>
+    <title>博文详情</title>
+
+    <include file="Common:header"/>
+</head>
+
+<body class="p-blog zh">
+<include file="Common:navigate"/>
+
+<div class="body">
+    <div class="wrapper cls">
+        <div class="main">
+            <div class="list">
+                <ul>
+                    <li>
+                        <h1 class="title">
+                            <a href="__CONTROLLER__/article/id/{$vo.id}">{$actives.bk_title}</a>
+                        </h1>
+                        <div class="info">
+                            <span>{$actives.time}</span>
+                            <!--{$vo.time | date = "Y-m-d" , ###}-->
+                        </div>
+                        <div class="thumb">
+
+                            <!--文章内容-->
+                            {$vo.bk_content}
+                            <?php echo htmlspecialchars_decode($actives['bk_content']);?>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <include file="Common:right"/>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div id="fb-root"></div>
+
+<include file="Common:footer"/>
+</body>
+</html>

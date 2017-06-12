@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+    <include file="Common:ueditor"/>
+</head>
+<body>
+<include file="Common:header"/>
+<div class="container clearfix">
+    <include file="Common:navigate"/>
+    <!--/sidebar-->
+    <div class="main-wrap">
+
+        <div class="crumb-wrap">
+            <div class="crumb-list"><i class="icon-font"></i><a href="__MODULE__/Index">首页</a><span
+                    class="crumb-step">&gt;</span><a class="crumb-name" href="__MODULE__/Hpage/lists">首页管理</a><span
+                    class="crumb-step">&gt;</span><span>修改首页文章</span></div>
+        </div>
+        <div class="result-wrap">
+            <div class="result-content">
+                <form action="__CONTROLLER__/edit" method="post" id="myform" name="myform"
+                      enctype="multipart/form-data">
+                    <table class="insert-tab" width="100%">
+                        <tbody>
+                        <!--<tr>-->
+                            <!--<th width="120"><i class="require-red">*</i>分类：</th>-->
+                            <!--<td>-->
+                                <!--<select name="colId" id="catid" class="required">-->
+                                    <!--<option value="">请选择</option>-->
+                                    <!--<option value="19">精品界面</option>-->
+                                    <!--<option value="20">推荐界面</option>-->
+                                <!--</select>-->
+                            <!--</td>-->
+                        <!--</tr>-->
+                        <input type="hidden" name="id" value="{$m.id}"/>
+                        <tr>
+                            <th><i class="require-red">*</i>标题：</th>
+                            <td>
+                                <input class="common-text required" id="title" name="bk_title" size="50" value="{$m.bk_title}"
+                                       type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>作者：</th>
+                            <td><input class="common-text" name="bk_author" size="50" value="{$m.bk_author}" type="text"></td>
+                        </tr>
+                        <tr>
+                            <th><i class="require-red">*</i>缩略图：</th>
+                            <td><input name="bk_pic" id="" type="file">
+                                <if condition="$m['bk_pic'] neq null">
+                                    <img src="__ROOT__{$m.bk_pic}" height="30"/>
+                                    <else/>
+                                    暂无图片
+                                </if>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>内容：</th>
+                            <td><textarea name="bk_content" class="common-textarea" id="content" cols="30"
+                                          style="width: 98%;" rows="10">{$m.bk_content}</textarea></td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td>
+                                <input class="btn btn-primary btn6 mr10" value="提交" type="submit">
+                                <input class="btn btn6" onclick="history.go(-1)" value="返回" type="button">
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <!--/main-->
+</div>
+</body>
+</html>
